@@ -74,14 +74,14 @@ pub fn run(config: Config) -> MyResult<()> {
             break;
         }
         if line.trim_end() != prev.trim_end() {
-            print(count, &prev);
+            print(count, &prev)?;
             count = 0;
             prev = line.clone();
         }
         count += 1;
         line.clear();
     }
-    print(count, &prev);
+    print(count, &prev)?;
     Ok(())
 }
 
